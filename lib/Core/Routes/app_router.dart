@@ -8,6 +8,8 @@ import 'package:gedeed/Features/SignUp/Ui/Screen/sign_up_screen.dart';
 import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
 import 'package:gedeed/Features/auth_start/ui/screens/auth_start.dart';
 import 'package:gedeed/Features/Login/UI/Screens/login_screen.dart';
+import 'package:gedeed/Features/nowPlaying/Logic/cubit/now_playing_cubit.dart';
+import 'package:gedeed/Features/nowPlaying/UI/screens/now_playing.dart';
 
 import '../../Features/onBoarding/on_boarding.dart';
 
@@ -38,6 +40,14 @@ class AppRouter {
               (_) => BlocProvider(
                 create: (context) => getIt<SignUpCubit>(),
                 child: SignUpScreen(),
+              ),
+        );
+      case Routes.nowPlayingScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (_) => getIt<NowPlayingCubit>()..fetchNowPlaying(),
+                child: NowPlayingScreen(),
               ),
         );
       default:

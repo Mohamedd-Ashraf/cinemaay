@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:gedeed/Core/NetWorking/api_constants.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -14,7 +15,11 @@ class DioFactory {
       dio = Dio();
       dio!
         ..options.connectTimeout = timeOut
-        ..options.receiveTimeout = timeOut;
+        ..options.receiveTimeout = timeOut
+        ..options.headers = {
+          'Authorization': ApiConstants.bearerToken,
+          'accept': 'application/json',
+        };
       addDioInterceptor();
       return dio!;
     } else {

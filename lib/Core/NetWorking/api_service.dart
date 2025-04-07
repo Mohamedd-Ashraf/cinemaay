@@ -1,8 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:gedeed/Core/NetWorking/api_constants.dart';
 import 'package:retrofit/retrofit.dart';
-import '../../Features/Login/Data/models/login_request_body.dart';
-import '../../Features/Login/Data/models/login_response.dart';
+import 'package:dio/dio.dart';
+import 'dio_factory.dart';
 
 part 'api_service.g.dart';
 
@@ -10,6 +9,17 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  @POST(ApiConstants.login)
-  Future<LoginResponse> login(@Body() LoginRequestBody loginRequestBody);
+  // Fetch now playing movies.
+  @GET(ApiConstants.playingNowPath)
+  Future<dynamic> fetchNowPlayingMovies({
+    @Query('language') String language = 'en-US',
+    @Query('page') int page = 1,
+
+  });
+
+  /// Helper method to build the full image URL from a poster path.
+  static String getImageUrl(String posterPath, {String size = ApiConstants.defaultImageSize}) {
+    return '${ApiConstants.imageBaseUrl}$size$posterPath';
+  }
 }
+
