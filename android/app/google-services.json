@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1018725801235",
+    "project_id": "cinemax-e22bb",
+    "storage_bucket": "cinemax-e22bb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018725801235:android:92ed3c51ce11ab6a3fcee6",
+        "android_client_info": {
+          "package_name": "com.example.gedeed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7CZmfgNF30Bk_4uLYl0YWkEYzwK3JZHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,6 @@
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/splash.png
+  android_12:
+    # The image parameter sets the splash screen icon image.  If this parameter is not specified,
+    # the app's launcher icon will be used instead.

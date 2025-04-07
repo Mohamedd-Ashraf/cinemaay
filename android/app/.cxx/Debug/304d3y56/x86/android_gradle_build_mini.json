@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "D:\\Projects\\flutter\\flutter_windows_3.29.0-stable\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "D:\\androidSDK\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\Projects\\flutter\\2025\\Eye_go\\Cinemaay\\cinemaay\\android\\app\\.cxx\\Debug\\304d3y56\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "D:\\androidSDK\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\Projects\\flutter\\2025\\Eye_go\\Cinemaay\\cinemaay\\android\\app\\.cxx\\Debug\\304d3y56\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
