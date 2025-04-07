@@ -76,7 +76,7 @@ class SignupBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-    context.pop();
+    // context.pop();
     showDialog(
       context: context,
       builder:

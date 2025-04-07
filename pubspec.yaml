@@ -60,7 +60,7 @@ dependencies:
   flutter_svg: ^2.0.9
   # for adapting screen and font size.
   flutter_screenutil: ^5.9.0
-  firebase_core: ^2.27.0
+  firebase_core: ^3.13.0
   # Flutter library to load and cache network images.
   cached_network_image: ^3.3.1
   # reading and writing simple key-value pairs
@@ -69,8 +69,7 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   # easy way to add shimmer effect
   shimmer: ^3.0.0
-  firebase_auth: 
-
+  firebase_auth: ^5.5.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

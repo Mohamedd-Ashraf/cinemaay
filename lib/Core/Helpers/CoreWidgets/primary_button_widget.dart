@@ -77,45 +77,62 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDisabled = disabled || onPressed == null;
-    final Color bgColor =
-        isDisabled
-            ? ColorsManager.darkGrey
-            : (type == ButtonType.filled
-                ? ColorsManager.primarySoft
-                : Colors.transparent);
-    final Color borderColor =
-        isDisabled ? ColorsManager.darkGrey : ColorsManager.primarySoft;
-    final Color textColor = ColorsManager.whiteGrey;
+    final ValueNotifier<bool> isPressed = ValueNotifier(false);
 
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: GestureDetector(
-        onTap: isDisabled ? null : onPressed,
-        child: Container(
-          height: _getHeight(),
-          width: width,
-          padding: _getPadding(),
-          decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(40),
-            border:
-                type == ButtonType.outlined
-                    ? Border.all(color: borderColor, width: 1.5)
-                    : null,
-          ),
-          child: Row(
-            // mainAxisSize: MainAxisSize.,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (hasIcon)
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(Icons.play_arrow, size: 16, color: textColor),
-                ),
-              Text(label, style: _getTextStyle().copyWith(color: textColor)),
-            ],
-          ),
-        ),
+      child: ValueListenableBuilder<bool>(
+        valueListenable: isPressed,
+        builder: (context, pressed, child) {
+          final Color bgColor =
+              isDisabled
+                  ? ColorsManager.darkGrey
+                  : (pressed
+                      ? ColorsManager.primarySoft.withOpacity(0.5)
+                      : (type == ButtonType.filled
+                          ? ColorsManager.primarySoft
+                          : Colors.transparent));
+          final Color borderColor =
+              isDisabled ? ColorsManager.darkGrey : ColorsManager.primarySoft;
+          final Color textColor = ColorsManager.whiteGrey;
+
+          return ElevatedButton(
+            onPressed:
+                isDisabled
+                    ? null
+                    : () {
+                      isPressed.value = true;
+                      Future.delayed(const Duration(milliseconds: 100), () {
+                        isPressed.value = false;
+                      });
+                      onPressed?.call();
+                    },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: bgColor,
+              foregroundColor: textColor,
+              padding: _getPadding(),
+              minimumSize: Size(width, _getHeight()),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(40),
+                side:
+                    type == ButtonType.outlined
+                        ? BorderSide(color: borderColor, width: 1.5)
+                        : BorderSide.none,
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (hasIcon)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Icon(Icons.play_arrow, size: 16, color: textColor),
+                  ),
+                Text(label, style: _getTextStyle().copyWith(color: textColor)),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

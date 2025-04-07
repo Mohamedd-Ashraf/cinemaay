@@ -64,6 +64,7 @@ class _SignUpFieldsState extends State<SignUpFields> {
               }
             },
             controller: context.read<SignUpCubit>().nameController,
+            cursorColor: ColorsManager.primarySoft,
 
             decoration: InputDecoration(
               labelText: "Full Name",
@@ -93,6 +94,8 @@ class _SignUpFieldsState extends State<SignUpFields> {
               }
             },
             controller: context.read<SignUpCubit>().emailController,
+            cursorColor: ColorsManager.primarySoft,
+            keyboardType: TextInputType.emailAddress,
 
             decoration: InputDecoration(
               labelText: "Email Address",
@@ -113,10 +116,14 @@ class _SignUpFieldsState extends State<SignUpFields> {
           ),
           SizedBox(height: 20.h),
           TextFormField(
+            cursorColor: ColorsManager.primarySoft,
+
             style: TextStyle(color: ColorsManager.grey),
             obscureText: true,
             validator: (value) {
-              if (value == null || value.isEmpty) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPasswordValid(value)) {
                 return 'Please enter a valid password';
               }
             },
@@ -161,3 +168,4 @@ class _SignUpFieldsState extends State<SignUpFields> {
     super.dispose();
   }
 }
+//TODO wants to be refactored to  

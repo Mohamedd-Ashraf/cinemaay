@@ -1,27 +1,38 @@
 import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:gedeed/Core/Helpers/FireBase/fire_base_helper.dart';
 import 'package:gedeed/Features/Login/Logic/cubit/login_state.dart';
-import 'package:gedeed/Features/Login/Data/models/login_request_body.dart';
-import 'package:gedeed/Features/Login/Data/repos/login_repo.dart';
 
-
-class LoginCubit extends Cubit<LoginState> {
-  LoginRepo _loginRepo;
-  LoginCubit(this._loginRepo) : super(LoginState.initial());
-  void emitLoginStates(LoginRequestBody loginRequestBody) async {
-    emit(LoginState.loading());
+class SignInCubit extends Cubit<SignInState> {
+  SignInCubit() : super(SignInState.initial());
+  final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  void signIn() async {
+    emit(SignInState.loading());
     try {
-      final response = await _loginRepo.login(loginRequestBody);
-      response.when(
-        success: (data) {
-          emit(LoginState.success(data));
-        },
-        failure: (error) {
-          emit(LoginState.error(message: error.apiErrorModel.message?? ''));
-        },
+      final result = await FireBaseHelper().signInWithEmailAndPassword(
+        emailController.text,
+        passwordController.text,
       );
+      if (result is User) {
+        emit(SignInState.success(result));
+      } else {
+        emit(SignInState.error(message: result));
+      }
     } catch (e) {
-      emit(LoginState.error(message: e.toString()));
+      emit(SignInState.error(message: e.toString()));
+    }
+  }
+
+  void signOut() async {
+    emit(SignInState.loading());
+    try {
+      await FireBaseHelper().signOut();
+      emit(SignInState.success(null));
+    } catch (e) {
+      emit(SignInState.error(message: e.toString()));
     }
   }
 }

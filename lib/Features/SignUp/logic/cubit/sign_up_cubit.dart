@@ -24,32 +24,19 @@ class SignUpCubit extends Cubit<SignUpState> {
         nameController.text,
       );
       if (result is User) {
+        print("User signed in successfully");
+        print("User ID: ${result.uid}");
+        print("User Email: ${result.email}");
         emit(SignUpState.signupSuccess(result));
       } else {
         emit(SignUpState.signupError(error: result));
       }
-      emit(SignUpState.signupSuccess(result));
     } catch (e) {
       emit(SignUpState.signupError(error: e.toString()));
     }
   }
 
-  void signIn(String email, String password) async {
-    emit(SignUpState.signupLoading());
-    try {
-      final result = await FireBaseHelper().signInWithEmailAndPassword(
-        email,
-        password,
-      );
-      if (result is User) {
-        emit(SignUpState.signupSuccess(result));
-      } else {
-        emit(SignUpState.signupError(error: result));
-      }
-    } catch (e) {
-      emit(SignUpState.signupError(error: e.toString()));
-    }
-  }
+  
 
   void signOut() async {
     emit(SignUpState.signupLoading());

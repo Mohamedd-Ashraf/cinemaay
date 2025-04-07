@@ -1,0 +1,2 @@
+D:/Projects/flutter/2025/Eye_go/Cinemaay/cinemaay/android/app/.cxx/Debug/4j514816/x86/CMakeFiles/edit_cache.dir
+D:/Projects/flutter/2025/Eye_go/Cinemaay/cinemaay/android/app/.cxx/Debug/4j514816/x86/CMakeFiles/rebuild_cache.dir

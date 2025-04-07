@@ -2,9 +2,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'login_state.freezed.dart';
 @freezed
-class LoginState<T> with _$LoginState<T> {
-  const factory LoginState.initial() = _Initial;
-  const factory LoginState.loading() = Loading;
-  const factory LoginState.success(T data) = Success<T>;
-  const factory LoginState.error( {required String message}) = Error;
+class SignInState<T> with _$SignInState<T> {
+  const factory SignInState.initial() = SignInIntial;
+  const factory SignInState.loading() = SignInLoading;
+  const factory SignInState.success(T data) = SignInSuccess<T>;
+  const factory SignInState.error({required String message}) = SignInError;
+
 }

@@ -16,7 +16,7 @@ class DocApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         title: 'Doctor App',
-        initialRoute: Routes.signUpScreen,
+        initialRoute: Routes.loginScreen,
         theme: ThemeData(
           primaryColor: ColorsManager.primary,
           scaffoldBackgroundColor: ColorsManager.white,

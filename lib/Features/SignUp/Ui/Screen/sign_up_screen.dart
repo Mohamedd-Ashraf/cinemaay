@@ -1,13 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gedeed/Core/Helpers/CoreWidgets/primary_button_widget.dart';
-import 'package:gedeed/Core/Routes/routes.dart';
 import 'package:gedeed/Core/Themes/colors/colors.dart';
 import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import 'package:gedeed/Features/SignUp/Ui/widgets/sign_up_bloc_listener.dart';
 import 'package:gedeed/Features/SignUp/Ui/widgets/signup_fields_widget.dart';
 import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
 
@@ -59,9 +57,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(height: 50.h),
 
                 /// ✅ Wrap SignUpFields in a Builder to ensure the context has access to SignUpCubit
-                Builder(
-                  builder: (context) => SignUpFields(),
-                ),
+                Builder(builder: (context) => SignUpFields()),
 
                 SizedBox(height: 20.h),
                 Row(
@@ -80,6 +76,7 @@ class SignUpScreen extends StatelessWidget {
                                 isChecked = value!;
                               });
                             },
+
                             activeColor: ColorsManager.primaryDark,
                             checkColor: ColorsManager.grey,
                           ),
@@ -97,10 +94,11 @@ class SignUpScreen extends StatelessWidget {
                               style: TextStyles.h4Regular.copyWith(
                                 color: ColorsManager.primarySoft,
                               ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Handle Terms and Services tap
-                                },
+                              recognizer:
+                                  TapGestureRecognizer()
+                                    ..onTap = () {
+                                      // Handle Terms and Services tap
+                                    },
                             ),
                             TextSpan(
                               text: ' and ',
@@ -111,10 +109,11 @@ class SignUpScreen extends StatelessWidget {
                               style: TextStyles.h4Regular.copyWith(
                                 color: ColorsManager.primarySoft,
                               ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Handle Privacy Policy tap
-                                },
+                              recognizer:
+                                  TapGestureRecognizer()
+                                    ..onTap = () {
+                                      // Handle Privacy Policy tap
+                                    },
                             ),
                           ],
                         ),
@@ -129,10 +128,12 @@ class SignUpScreen extends StatelessWidget {
                   width: double.infinity,
                   onPressed: () {
                     validateThenDoSignup(context);
-                    Navigator.pushNamed(context, Routes.loginScreen);
+
+                    // Navigator.pushNamed(context, Routes.loginScreen);
                   },
                   label: 'Sign Up',
                 ),
+                const SignupBlocListener(),
               ],
             ),
           ),
@@ -141,8 +142,9 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
-  void validateThenDoSignup(BuildContext context) {
-    if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
-      context.read<SignUpCubit>().signUp();
-    }
+
+void validateThenDoSignup(BuildContext context) {
+  if (context.read<SignUpCubit>().formKey.currentState!.validate()) {
+    context.read<SignUpCubit>().signUp();
   }
+}

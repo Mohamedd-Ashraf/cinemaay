@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gedeed/Core/DI/dependency_injection.dart';
 import 'package:gedeed/Core/Routes/routes.dart';
 import 'package:gedeed/Features/Login/Logic/cubit/login_cubit.dart'
-    show LoginCubit;
+    show SignInCubit;
 import 'package:gedeed/Features/SignUp/Ui/Screen/sign_up_screen.dart';
 import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
 import 'package:gedeed/Features/auth_start/ui/screens/auth_start.dart';
@@ -20,7 +20,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => getIt<SignUpCubit>(),
+                create: (context) => getIt<SignInCubit>(),
                 child: loginScreen(),
               ),
         );
@@ -33,7 +33,13 @@ class AppRouter {
               ),
         );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => SignUpScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<SignUpCubit>(),
+                child: SignUpScreen(),
+              ),
+        );
       default:
         return MaterialPageRoute(builder: (_) => onBoardingScreen());
     }

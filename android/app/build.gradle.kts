@@ -12,7 +12,7 @@ android {
     namespace = "com.example.gedeed"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.0.13004108"
-
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -27,7 +27,7 @@ android {
         applicationId = "com.example.gedeed"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
