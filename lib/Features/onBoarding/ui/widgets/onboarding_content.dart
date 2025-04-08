@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gedeed/Features/onBoarding/ui/screens/on_boarding.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../screens/on_boarding.dart';
 
 class OnboardingContent extends StatelessWidget {
   final OnboardingItem item;
@@ -20,15 +21,15 @@ class OnboardingContent extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 80,
-          left: 24,
-          right: 24,
+          bottom: 80.sp,
+          left: 24.sp,
+          right: 24.sp,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(item.title, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white)),
-              const SizedBox(height: 8),
-              Text(item.subtitle, style: const TextStyle(fontSize: 16, color: Colors.white70)),
+              Text(item.title, style:  TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold, color: Colors.white)),
+               SizedBox(height: 8.h),
+              Text(item.subtitle, style:  TextStyle(fontSize: 16.sp, color: Colors.white70)),
             ],
           ),
         ),

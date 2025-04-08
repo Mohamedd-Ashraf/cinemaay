@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:gedeed/Core/NetWorking/api_constants.dart';
+import 'api_constants.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {

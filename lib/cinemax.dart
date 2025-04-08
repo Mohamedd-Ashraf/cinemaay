@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Routes/app_router.dart';
+import 'Core/Routes/app_router.dart';
 
 import 'Core/Routes/routes.dart';
 import 'Core/Themes/colors/colors.dart';
@@ -16,7 +17,7 @@ class CineMax extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         title: 'CineMax',
-        initialRoute: Routes.onBoarding,
+        initialRoute: intialRoute(),
         theme: ThemeData(
           primaryColor: ColorsManager.primary,
           scaffoldBackgroundColor: ColorsManager.white,
@@ -25,5 +26,13 @@ class CineMax extends StatelessWidget {
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
+  }
+}
+
+String intialRoute() {
+  if (FirebaseAuth.instance.currentUser != null) {
+    return Routes.nowPlayingScreen;
+  } else {
+    return Routes.onBoarding;
   }
 }

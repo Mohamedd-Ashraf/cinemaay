@@ -1,4 +1,4 @@
-import 'package:gedeed/Core/NetWorking/api_constants.dart';
+import 'api_constants.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 import 'dio_factory.dart';

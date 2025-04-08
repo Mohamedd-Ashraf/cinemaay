@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:gedeed/Features/onBoarding/ui/screens/on_boarding.dart';
-import 'package:gedeed/Features/onBoarding/ui/widgets/onboarding_content.dart';
+import '../screens/on_boarding.dart';
+import 'onboarding_content.dart';
 
 class OnboardingPageView extends StatelessWidget {
   final PageController controller;

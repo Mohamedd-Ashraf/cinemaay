@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class BottomNavItem {
   final IconData icon;
@@ -62,7 +62,7 @@ class CustomBottomNavBar extends StatelessWidget {
                             Text(
                               item.label,
                               style: TextStyles.h7Regular.copyWith(
-                                fontSize: 8.sp, //TODO
+                                fontSize: 12.sp, //TODO
                                 color: ColorsManager.primarySoft,
                               ),
                             ),

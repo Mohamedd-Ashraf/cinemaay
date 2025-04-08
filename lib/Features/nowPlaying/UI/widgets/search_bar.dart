@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MovieSearchBar extends StatelessWidget {
   final void Function(String)? onChanged;
@@ -12,32 +12,32 @@ class MovieSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      height: 48.h,
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
-        color: ColorsManager.primary, // Dark background
-        borderRadius: BorderRadius.circular(30),
+        color: ColorsManager.primary, 
+        borderRadius: BorderRadius.circular(30.r),
       ),
       child: Row(
         children: [
-          const Icon(Icons.search, color: ColorsManager.whiteGrey, size: 20),
-          const SizedBox(width: 8),
+          Icon(Icons.search, color: ColorsManager.whiteGrey, size: 20.sp),
+          SizedBox(width: 8.w),
           Expanded(
             child: TextField(
               onChanged: onChanged,
-              style: const TextStyle(color: ColorsManager.white),
-              decoration: const InputDecoration(
+              style: TextStyle(color: ColorsManager.white, fontSize: 14.sp),
+              decoration: InputDecoration(
                 hintText: 'Searc a title..',
-                hintStyle: TextStyle(color: ColorsManager.grey),
+                hintStyle: TextStyle(color: ColorsManager.grey, fontSize: 14.sp),
                 border: InputBorder.none,
               ),
             ),
           ),
-          Container(height: 24, width: 1, color: Colors.white24),
+          Container(height: 24.h, width: 1.w, color: Colors.white24),
           IconButton(
             onPressed: onFilterTap,
-            icon: const Icon(Icons.tune, color: ColorsManager.white, size: 20),
-            padding: const EdgeInsets.only(left: 8),
+            icon: Icon(Icons.tune, color: ColorsManager.white, size: 20.sp),
+            padding: EdgeInsets.only(left: 8.w),
           ),
         ],
       ),

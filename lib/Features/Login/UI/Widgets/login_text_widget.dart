@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class LoginTextWidget extends StatelessWidget {
   final String? userName; // Optional name for personalization

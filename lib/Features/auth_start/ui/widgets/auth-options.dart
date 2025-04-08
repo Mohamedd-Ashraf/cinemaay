@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Helpers/CoreWidgets/primary_button_widget.dart';
-import 'package:gedeed/Core/Routes/app_router.dart';
-import 'package:gedeed/Core/Routes/routes.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import '../../../../Core/Helpers/CoreWidgets/primary_button_widget.dart';
+import '../../../../Core/Routes/app_router.dart';
+import '../../../../Core/Routes/routes.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class AuthOptionsWidget extends StatelessWidget {
   const AuthOptionsWidget({super.key});
@@ -17,18 +17,17 @@ class AuthOptionsWidget extends StatelessWidget {
         AppButton(
           size: ButtonSize.extraLarge,
           width: double.infinity,
-          height: 60,
+          height: 60.h,
           label: "Sign Up",
-
           onPressed: () {
             Navigator.pushNamed(context, Routes.signUpScreen);
           },
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               "I already have an account?",
               style: TextStyles.h3Regular,
             ),

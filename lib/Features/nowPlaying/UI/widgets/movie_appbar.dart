@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart' show ColorsManager;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../Core/Themes/colors/colors.dart' show ColorsManager;
 
 class MovieAppBar extends StatelessWidget {
   const MovieAppBar({super.key});
@@ -11,21 +12,21 @@ class MovieAppBar extends StatelessWidget {
       children: [
         Row(
           children: [
-            const CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('assets/images/user.jpg'),
+             CircleAvatar(
+              radius: 20.sp, 
+              backgroundImage: AssetImage('assets/images/user_persona.png'),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: 10.w), 
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children:  [
                 Text(
                   "Hello, Smith",
-                  style: TextStyle(color: ColorsManager.white, fontSize: 16),
+                  style: TextStyle(color: ColorsManager.white, fontSize: 16.sp), 
                 ),
                 Text(
                   "Let's stream your favorite movie",
-                  style: TextStyle(color: ColorsManager.grey, fontSize: 12),
+                  style: TextStyle(color: ColorsManager.grey, fontSize: 12.sp), 
                 ),
               ],
             ),

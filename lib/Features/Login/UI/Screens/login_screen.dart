@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Helpers/CoreWidgets/primary_button_widget.dart';
-import 'package:gedeed/Core/Routes/routes.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
-import 'package:gedeed/Features/Login/Logic/cubit/login_cubit.dart';
-import 'package:gedeed/Features/Login/UI/Widgets/login_fields_widget.dart';
-import 'package:gedeed/Features/Login/UI/Widgets/login_states_listener.dart';
-import 'package:gedeed/Features/auth_start/ui/widgets/login_lower_bar_widget.dart';
-import 'package:gedeed/Features/Login/UI/Widgets/login_text_widget.dart';
+import '../../../../Core/Helpers/CoreWidgets/primary_button_widget.dart';
+import '../../../../Core/Routes/routes.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
+import '../../Logic/cubit/login_cubit.dart';
+import '../Widgets/login_fields_widget.dart';
+import '../Widgets/login_states_listener.dart';
+import '../../../auth_start/ui/widgets/login_lower_bar_widget.dart';
+import '../Widgets/login_text_widget.dart';
 
 class loginScreen extends StatelessWidget {
   const loginScreen({super.key});

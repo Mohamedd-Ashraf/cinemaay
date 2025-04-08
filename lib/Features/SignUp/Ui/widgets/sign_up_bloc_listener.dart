@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:gedeed/Core/Helpers/extensions.dart';
-import 'package:gedeed/Core/Routes/routes.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
-import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
+import '../../../../Core/Helpers/extensions.dart';
+import '../../../../Core/Routes/routes.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
+import '../../logic/cubit/sign_up_cubit.dart';
 
 class SignupBlocListener extends StatelessWidget {
   const SignupBlocListener({super.key});
@@ -83,7 +84,7 @@ class SignupBlocListener extends StatelessWidget {
       context: context,
       builder:
           (context) => AlertDialog(
-            icon: const Icon(Icons.error, color: Colors.red, size: 32),
+            icon:  Icon(Icons.error, color: Colors.red, size: 32.sp),
             content: Text(error, style: TextStyles.h3Medium),
             actions: [
               TextButton(

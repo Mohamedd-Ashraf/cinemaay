@@ -2,8 +2,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:gedeed/Features/onBoarding/ui/widgets/onboarding_controls.dart';
-import 'package:gedeed/Features/onBoarding/ui/widgets/onboarding_page_view.dart';
+import '../widgets/onboarding_controls.dart';
+import '../widgets/onboarding_page_view.dart';
 
 
 class OnBoardingScreen extends StatefulWidget {

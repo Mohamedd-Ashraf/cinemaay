@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Features/auth_start/ui/widgets/auth-options.dart';
-import 'package:gedeed/Features/auth_start/ui/widgets/logo_and_text.dart';
-import 'package:gedeed/Features/auth_start/ui/widgets/login_lower_bar_widget.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../widgets/auth-options.dart';
+import '../widgets/logo_and_text.dart';
+import '../widgets/login_lower_bar_widget.dart';
 
 class authStart extends StatelessWidget {
   const authStart({super.key});

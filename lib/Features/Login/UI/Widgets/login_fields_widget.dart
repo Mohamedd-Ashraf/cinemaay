@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Helpers/text_regex.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
-import 'package:gedeed/Features/Login/Logic/cubit/login_cubit.dart';
+import '../../../../Core/Helpers/text_regex.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
+import '../../Logic/cubit/login_cubit.dart';
 
 class LoginFieldsWidget extends StatelessWidget {
   LoginFieldsWidget({super.key});
@@ -28,13 +28,13 @@ class LoginFieldsWidget extends StatelessWidget {
             decoration: InputDecoration(
               labelText: "Email Address",
               labelStyle: TextStyle(color: ColorsManager.whiteGrey),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.sp)),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(25.sp),
                 borderSide: BorderSide(color: ColorsManager.primaryDark),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
                 borderSide: BorderSide(color: ColorsManager.grey),
               ),
             ),
@@ -56,6 +56,7 @@ class LoginFieldsWidget extends StatelessWidget {
                 onPressed: () {
                   // Toggle password visibility
                   //TODO: Implement password visibility toggle
+                  
                 },
               ),
       
@@ -63,11 +64,11 @@ class LoginFieldsWidget extends StatelessWidget {
               labelStyle: TextStyle(color: ColorsManager.whiteGrey),
       
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(25.sp),
                 borderSide: BorderSide(color: ColorsManager.primaryDark),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
                 borderSide: BorderSide(color: ColorsManager.grey),
               ),
             ),

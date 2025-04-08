@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Features/nowPlaying/Logic/cubit/now_playing_cubit.dart';
-import 'package:gedeed/Features/nowPlaying/Logic/cubit/now_playing_state.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/category_selector.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/custom_nav_bar.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/movie_appbar.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/movie_list_widget.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/movie_slider.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/no_search_results.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/search_bar.dart';
-import 'package:gedeed/Features/nowPlaying/UI/widgets/search_result_list_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../Logic/cubit/now_playing_cubit.dart';
+import '../../Logic/cubit/now_playing_state.dart';
+import '../widgets/category_selector.dart';
+import '../widgets/custom_nav_bar.dart';
+import '../widgets/movie_appbar.dart';
+import '../widgets/movie_list_widget.dart';
+import '../widgets/movie_slider.dart';
+import '../widgets/no_search_results.dart';
+import '../widgets/search_bar.dart';
+import '../widgets/search_result_list_widget.dart';
 
 class NowPlayingScreen extends StatefulWidget {
   const NowPlayingScreen({super.key});
-  //TODO pass the name of the user to the screen
-  // final String username;
+
   @override
   State<NowPlayingScreen> createState() => _NowPlayingScreenState();
 }
@@ -41,7 +41,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
+          padding:  EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.h),
           child: BlocBuilder<NowPlayingCubit, NowPlayingState>(
             builder: (context, state) {
               if (state is NowPlayingStateLoading) {
@@ -63,18 +63,18 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             MovieSlider(movies: movies),
-                            const SizedBox(height: 20),
-                            const Text(
+                             SizedBox(height: 20.h),
+                             Text(
                               "Categories",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 18,
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(height: 10),
-                            const CategorySelector(),
-                            const SizedBox(height: 20),
+                             SizedBox(height: 10.h),
+                             CategorySelector(),
+                             SizedBox(height: 20.h),
                             MovieListWidget(movies: movies),
                           ],
                         );
@@ -82,26 +82,26 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                 movieContent = Center(
                   child: Text(
                     state.message,
-                    style: const TextStyle(color: ColorsManager.red),
+                    style:  TextStyle(color: ColorsManager.red),
                   ),
                 );
               } else {
-                movieContent = const SizedBox.shrink();
+                movieContent =  SizedBox.shrink();
               }
 
               return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const MovieAppBar(),
-                    const SizedBox(height: 20),
+                     MovieAppBar(),
+                     SizedBox(height: 20.h),
                     MovieSearchBar(
                       onChanged:
                           (query) => context
                               .read<NowPlayingCubit>()
                               .searchMoviesLocally(query),
                     ),
-                    const SizedBox(height: 20),
+                     SizedBox(height: 20.h),
                     movieContent,
                   ],
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gedeed/Core/DI/dependency_injection.dart';
-import 'package:gedeed/Features/nowPlaying/data/repo/movie_repo.dart';
-import 'package:gedeed/Features/nowPlaying/data/models/movie_model.dart';
+import '../../../../Core/DI/dependency_injection.dart';
+import '../../data/repo/movie_repo.dart';
+import '../../data/models/movie_model.dart';
 import 'now_playing_state.dart';
 
 class NowPlayingCubit extends Cubit<NowPlayingState> {

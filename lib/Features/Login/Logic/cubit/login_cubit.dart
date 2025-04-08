@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gedeed/Core/Helpers/FireBase/fire_base_helper.dart';
-import 'package:gedeed/Features/Login/Logic/cubit/login_state.dart';
+import '../../../../Core/Helpers/FireBase/fire_base_helper.dart';
+import 'login_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInState.initial());

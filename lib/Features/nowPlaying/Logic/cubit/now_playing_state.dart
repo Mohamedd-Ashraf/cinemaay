@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gedeed/Features/nowPlaying/data/models/movie_model.dart';
+import '../../data/models/movie_model.dart';
 
 part 'now_playing_state.freezed.dart';
 

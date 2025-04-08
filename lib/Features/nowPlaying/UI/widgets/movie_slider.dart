@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/NetWorking/api_service.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
+import '../../../../Core/NetWorking/api_service.dart';
+import '../../../../Core/Themes/colors/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MovieSlider extends StatefulWidget {
@@ -63,11 +63,11 @@ class _MovieSliderState extends State<MovieSlider> {
             itemBuilder: (_, index) {
               final movie = widget.movies[index];
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
                 child: Stack(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16.r),
                       child: FadeInImage.assetNetwork(
                         placeholder: 'assets/images/movie_placeholder.png',
                         image: ApiService.getImageUrl(movie.posterPath ?? ''),
@@ -76,25 +76,25 @@ class _MovieSliderState extends State<MovieSlider> {
                       ),
                     ),
                     Positioned(
-                      bottom: 20,
-                      left: 20,
+                      bottom: 20.h,
+                      left: 20.w,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             movie.title ?? '',
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: ColorsManager.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                           ),
-                          const SizedBox(height: 4),
+                          SizedBox(height: 4.h),
                           Text(
                             'On ${movie.releaseDate ?? ''}',
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: ColorsManager.grey,
-                              fontSize: 12,
+                              fontSize: 12.sp,
                             ),
                           ),
                         ],
@@ -106,10 +106,9 @@ class _MovieSliderState extends State<MovieSlider> {
             },
           ),
         ),
-        const SizedBox(height: 12),
-
+        SizedBox(height: 12.h),
         SmoothPageIndicator(
-          controller: _pageController, // PageController
+          controller: _pageController, 
           count: widget.movies.length,
           axisDirection: Axis.horizontal,
           effect: ScrollingDotsEffect(
@@ -118,11 +117,10 @@ class _MovieSliderState extends State<MovieSlider> {
             dotColor: ColorsManager.darkGrey,
             dotHeight: 10.h,
             dotWidth: 18.w,
-            strokeWidth: 1.5,
+            strokeWidth: 1.5.w,
           ),
         ),
       ],
     );
   }
 }
-//TODO

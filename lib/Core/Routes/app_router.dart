@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gedeed/Core/DI/dependency_injection.dart';
-import 'package:gedeed/Core/Routes/routes.dart';
+import '../DI/dependency_injection.dart';
+import 'routes.dart';
 import 'package:gedeed/Features/Login/Logic/cubit/login_cubit.dart'
     show SignInCubit;
 import 'package:gedeed/Features/SignUp/Ui/Screen/sign_up_screen.dart';

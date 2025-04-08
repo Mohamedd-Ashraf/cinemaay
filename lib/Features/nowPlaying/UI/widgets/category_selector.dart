@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../Core/Themes/colors/colors.dart';
 
 class CategorySelector extends StatefulWidget {
   const CategorySelector({super.key});
@@ -15,34 +16,33 @@ class _CategorySelectorState extends State<CategorySelector> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 36,
+      height: 36.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
         itemBuilder: (context, index) {
           final isSelected = index == selectedIndex;
           return Padding(
-            padding: const EdgeInsets.only(right: 12),
+            padding: EdgeInsets.only(right: 12.w),
             child: GestureDetector(
               onTap: () => setState(() => selectedIndex = index),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
                 decoration: BoxDecoration(
-                  color:
-                      isSelected
-                          ? ColorsManager.primarySoft
-                          : ColorsManager.primaryDark,
-                  borderRadius: BorderRadius.circular(20),
+                  color: isSelected
+                      ? ColorsManager.primarySoft
+                      : ColorsManager.primaryDark,
+                  borderRadius: BorderRadius.circular(20.r),
                   border: Border.all(color: ColorsManager.primarySoft),
                 ),
                 child: Center(
                   child: Text(
                     categories[index],
                     style: TextStyle(
-                      color:
-                          isSelected
-                              ? ColorsManager.primaryDark
-                              : ColorsManager.white,
+                      color: isSelected
+                          ? ColorsManager.primaryDark
+                          : ColorsManager.white,
+                      fontSize: 14.sp,
                     ),
                   ),
                 ),

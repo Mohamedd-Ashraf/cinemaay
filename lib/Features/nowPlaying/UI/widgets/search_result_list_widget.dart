@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Features/nowPlaying/data/models/movie_model.dart';
-import 'package:gedeed/Core/NetWorking/api_service.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../data/models/movie_model.dart';
+import '../../../../Core/NetWorking/api_service.dart';
 
 class SearchResultListWidget extends StatelessWidget {
   final List<MovieModel> movies;
@@ -26,12 +27,12 @@ class SearchResultListWidget extends StatelessWidget {
               child: FadeInImage.assetNetwork(
                 placeholder: 'assets/images/movie_placeholder.png',
                 image: ApiService.getImageUrl(movie.posterPath ?? ''),
-                width: 100,
-                height: 140,
+                width: 100.w,
+                height: 140.h,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12.w),
 
             // Info Column
             Expanded(
@@ -42,140 +43,142 @@ class SearchResultListWidget extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 6.w,
+                          vertical: 2.h,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.orange,
-                          borderRadius: BorderRadius.circular(4),
+                          borderRadius: BorderRadius.circular(4.sp),
                         ),
                         child: Row(
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.star,
-                              size: 14,
+                              size: 14.sp,
                               color: ColorsManager.white,
                             ),
-                            const SizedBox(width: 2),
+                            SizedBox(width: 2.w),
                             Text(
                               movie.voteAverage?.toStringAsFixed(1) ?? "0.0",
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: ColorsManager.white,
-                                fontSize: 12,
+                                fontSize: 12.sp,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 6.sp,
+                          vertical: 2.sp,
                         ),
                         decoration: BoxDecoration(
                           color:
-                              movie.id! % 2 == 0 ? Colors.orange : ColorsManager.primarySoft,
+                              movie.id! % 2 == 0
+                                  ? Colors.orange
+                                  : ColorsManager.primarySoft,
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
                           movie.id! % 2 == 0 ? 'Premium' : 'Free',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: ColorsManager.white,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
 
                   // Movie Title
                   Text(
                     movie.title ?? '',
-                    style: const TextStyle(
-                      fontSize: 16,
+                    style: TextStyle(
+                      fontSize: 16.sp,
                       color: ColorsManager.white,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 6),
+                  SizedBox(height: 6.h),
 
                   // Year
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.calendar_today,
-                        size: 14,
+                        size: 14.sp,
                         color: ColorsManager.whiteGrey,
                       ),
-                      const SizedBox(width: 4),
+                      SizedBox(width: 4.w),
                       Text(
                         movie.releaseDate?.split('-').first ?? 'N/A',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: ColorsManager.whiteGrey,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4),
+                  SizedBox(height: 4.h),
 
                   // Duration + Certification
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.access_time,
-                        size: 14,
+                        size: 14.sp,
                         color: ColorsManager.whiteGrey,
                       ),
-                      const SizedBox(width: 4),
-                      const Text(
+                      SizedBox(width: 4.w),
+                      Text(
                         "148 Minutes",
                         style: TextStyle(
                           color: ColorsManager.whiteGrey,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 6.w,
+                          vertical: 2.h,
                         ),
                         decoration: BoxDecoration(
                           color: ColorsManager.primarySoft,
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: const Text(
+                        child: Text(
                           'PG-13',
                           style: TextStyle(
                             color: ColorsManager.white,
-                            fontSize: 10,
+                            fontSize: 10.sp,
                           ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 4),
+                  SizedBox(height: 4.h),
 
                   // Genre
                   Row(
-                    children: const [
+                    children: [
                       Icon(
                         Icons.movie,
-                        size: 14,
+                        size: 14.sp,
                         color: ColorsManager.whiteGrey,
                       ),
-                      SizedBox(width: 4),
+                      SizedBox(width: 4.w),
                       Text(
                         "Action | Movie",
                         style: TextStyle(
                           color: ColorsManager.whiteGrey,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                         ),
                       ),
                     ],

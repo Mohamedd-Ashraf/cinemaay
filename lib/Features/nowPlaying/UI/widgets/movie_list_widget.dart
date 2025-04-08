@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/NetWorking/api_service.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import '../../../../Core/NetWorking/api_service.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class MovieListWidget extends StatelessWidget {
   final List<dynamic> movies;
@@ -19,12 +19,12 @@ class MovieListWidget extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 "Most popular",
                 style: TextStyle(
                   color: ColorsManager.white,
-                  fontSize: 18,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -34,7 +34,7 @@ class MovieListWidget extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           SizedBox(
             height: 240.h,
             child: ListView.builder(
@@ -45,60 +45,60 @@ class MovieListWidget extends StatelessWidget {
                 return Container(
                   decoration: BoxDecoration(
                     color: ColorsManager.primaryDark,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  width: 120,
-                  margin: const EdgeInsets.only(right: 12),
+                  width: 120.w,
+                  margin: EdgeInsets.only(right: 12.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Stack(
                         children: [
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.r),
                             child: FadeInImage.assetNetwork(
                               placeholder:
                                   'assets/images/movie_placeholder.png',
                               image: ApiService.getImageUrl(
                                 movie.posterPath ?? '',
                               ),
-                              height: 160,
-                              width: 120,
+                              height: 160.h,
+                              width: 120.w,
                               fit: BoxFit.fill,
                             ),
                           ),
                           Positioned(
-                            top: 6,
-                            right: 3,
+                            top: 6.h,
+                            right: 3.w,
                             child: Positioned(
-                              top: 8,
-                              right: 8,
+                              top: 8.h,
+                              right: 8.w,
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(12.r),
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
                                     sigmaX: 10.0,
                                     sigmaY: 10.0,
                                   ),
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 4,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8.w,
+                                      vertical: 4.h,
                                     ),
                                     decoration: BoxDecoration(
                                       color: ColorsManager.black.withOpacity(
                                         0.3,
                                       ),
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(12.r),
                                     ),
                                     child: Row(
                                       children: [
                                         Icon(
                                           Icons.star,
                                           color: ColorsManager.orange,
-                                          size: 16,
+                                          size: 16.sp,
                                         ),
-                                        SizedBox(width: 4),
+                                        SizedBox(width: 4.w),
                                         Text(
                                           movie.voteAverage?.toStringAsFixed(
                                                 1,
@@ -122,9 +122,9 @@ class MovieListWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8.h),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
+                        padding: EdgeInsets.only(left: 8.w),
                         child: Text(
                           movie.title ?? "",
                           maxLines: 1,
@@ -135,8 +135,8 @@ class MovieListWidget extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: const Text(
+                        padding: EdgeInsets.only(left: 8.w),
+                        child: Text(
                           "Action",
                           style: TextStyles.h6Regular,
                         ),

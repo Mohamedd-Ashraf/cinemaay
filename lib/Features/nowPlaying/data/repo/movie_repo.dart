@@ -1,6 +1,6 @@
-import 'package:gedeed/Core/DI/dependency_injection.dart';
-import 'package:gedeed/Core/NetWorking/api_service.dart';
-import 'package:gedeed/Features/nowPlaying/data/models/now_playing_response.dart';
+import '../../../../Core/DI/dependency_injection.dart';
+import '../../../../Core/NetWorking/api_service.dart';
+import '../models/now_playing_response.dart';
 
 class MovieRepository {
   final ApiService _apiService = getIt<ApiService>();

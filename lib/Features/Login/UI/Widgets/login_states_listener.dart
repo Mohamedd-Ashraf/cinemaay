@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:gedeed/Core/Helpers/extensions.dart';
-import 'package:gedeed/Core/Routes/app_router.dart';
-import 'package:gedeed/Core/Routes/routes.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
-import 'package:gedeed/Features/Login/Logic/cubit/login_cubit.dart';
-import 'package:gedeed/Features/Login/Logic/cubit/login_state.dart';
+import '../../../../Core/Helpers/extensions.dart';
+import '../../../../Core/Routes/app_router.dart';
+import '../../../../Core/Routes/routes.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
+import '../../Logic/cubit/login_cubit.dart';
+import '../../Logic/cubit/login_state.dart';
 
 class SignInBlocListener extends StatelessWidget {
   const SignInBlocListener({super.key});
@@ -15,39 +16,34 @@ class SignInBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignInCubit, SignInState>(
-      listenWhen:
-          (previous, current) =>
-              current is SignInIntial ||
-              current is SignInLoading ||
-              current is SignInSuccess ||
-              current is SignInError,
+      listenWhen: (previous, current) =>
+          current is SignInIntial ||
+          current is SignInLoading ||
+          current is SignInSuccess ||
+          current is SignInError,
       listener: (context, state) {
         state.whenOrNull(
           initial: () {
             showDialog(
               context: context,
-              builder:
-                  (context) => const Center(
-                    child: CircularProgressIndicator(
-                      color: ColorsManager.primary,
-                    ),
-                  ),
+              builder: (context) => const Center(
+                child: CircularProgressIndicator(
+                  color: ColorsManager.primary,
+                ),
+              ),
             );
           },
           success: (signInResponse) {
             context.pushNamed(Routes.nowPlayingScreen);
-            // context.pop();
-            // showSuccessDialog(context);
           },
           loading: () {
             showDialog(
               context: context,
-              builder:
-                  (context) => const Center(
-                    child: CircularProgressIndicator(
-                      color: ColorsManager.primary,
-                    ),
-                  ),
+              builder: (context) => const Center(
+                child: CircularProgressIndicator(
+                  color: ColorsManager.primary,
+                ),
+              ),
             );
           },
           error: (error) {
@@ -91,22 +87,20 @@ class SignInBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
-    // context.pop();
     showDialog(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            icon: const Icon(Icons.error, color: Colors.red, size: 32),
-            content: Text(error, style: TextStyles.h3Medium),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  context.pop();
-                },
-                child: Text('Got it', style: TextStyles.h3Medium),
-              ),
-            ],
+      builder: (context) => AlertDialog(
+        icon:  Icon(Icons.error, color: Colors.red, size: 32.w),
+        content: Text(error, style: TextStyles.h3Medium),
+        actions: [
+          TextButton(
+            onPressed: () {
+              context.pop();
+            },
+            child: Text('Got it', style: TextStyles.h3Medium),
           ),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class LogoAndTextAuthStartWidet extends StatelessWidget {
   const LogoAndTextAuthStartWidet({super.key});
@@ -16,19 +16,19 @@ class LogoAndTextAuthStartWidet extends StatelessWidget {
           height: 100.h,
           fit: BoxFit.fill,
         ),
-        SizedBox(height: 25),
+        SizedBox(height: 25.h),
         Text(
           'CINEMAX',
-          style: TextStyles.h1Semibold.copyWith(letterSpacing: 1.9),
+          style: TextStyles.h1Semibold.copyWith(letterSpacing: 1.9.sp),
         ),
-        const SizedBox(height: 10),
-        const Text('Nice to meet you!', style: TextStyles.h5Semibold),
-        const SizedBox(height: 5),
-        const Text(
+        SizedBox(height: 10.h),
+        Text('Nice to meet you!', style: TextStyles.h5Semibold),
+        SizedBox(height: 5.h),
+        Text(
           'Your one-stop solution for everything',
           style: TextStyles.h5Semibold,
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class LoginLowerBarWidget extends StatelessWidget {
   const LoginLowerBarWidget({super.key});
@@ -11,18 +11,18 @@ class LoginLowerBarWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Row(
             children: [
-              const Expanded(
-                child: Divider(color: Colors.grey, thickness: 0.6),
+              Expanded(
+                child: Divider(color: Colors.grey, thickness: 0.6.h),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Text("Or sign in with", style: TextStyles.h3Regular),
               ),
-              const Expanded(
-                child: Divider(color: Colors.grey, thickness: 0.6),
+              Expanded(
+                child: Divider(color: Colors.grey, thickness: 0.6.h),
               ),
             ],
           ),

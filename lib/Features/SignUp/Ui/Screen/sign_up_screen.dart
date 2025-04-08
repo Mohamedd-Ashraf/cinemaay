@@ -2,12 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Helpers/CoreWidgets/primary_button_widget.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
-import 'package:gedeed/Features/SignUp/Ui/widgets/sign_up_bloc_listener.dart';
-import 'package:gedeed/Features/SignUp/Ui/widgets/signup_fields_widget.dart';
-import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
+import '../../../../Core/Helpers/CoreWidgets/primary_button_widget.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../../../Core/Themes/styles/fonts/text_style.dart';
+import '../widgets/sign_up_bloc_listener.dart';
+import '../widgets/signup_fields_widget.dart';
+import '../../logic/cubit/sign_up_cubit.dart';
 
 import '../widgets/signup_text.dart';
 

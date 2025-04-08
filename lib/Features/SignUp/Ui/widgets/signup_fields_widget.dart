@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gedeed/Core/Helpers/text_regex.dart';
-import 'package:gedeed/Core/Themes/colors/colors.dart';
-import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
+import '../../../../Core/Helpers/text_regex.dart';
+import '../../../../Core/Themes/colors/colors.dart';
+import '../../logic/cubit/sign_up_cubit.dart';
 
 class SignUpFields extends StatefulWidget {
   SignUpFields({super.key});
@@ -70,14 +70,14 @@ class _SignUpFieldsState extends State<SignUpFields> {
               labelText: "Full Name",
               labelStyle: TextStyle(color: ColorsManager.whiteGrey),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(25.sp),
                 borderSide: BorderSide(color: ColorsManager.primaryDark),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
                 borderSide: BorderSide(color: ColorsManager.grey),
               ),
             ),
@@ -101,14 +101,14 @@ class _SignUpFieldsState extends State<SignUpFields> {
               labelText: "Email Address",
               labelStyle: TextStyle(color: ColorsManager.whiteGrey),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(25.sp),
                 borderSide: BorderSide(color: ColorsManager.primaryDark),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
                 borderSide: BorderSide(color: ColorsManager.grey),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gedeed/Features/onBoarding/ui/screens/on_boarding.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../screens/on_boarding.dart';
 
 class OnboardingControls extends StatelessWidget {
   final int currentPage;
@@ -16,7 +17,7 @@ class OnboardingControls extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+      padding:  EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 16.0.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,9 +29,9 @@ class OnboardingControls extends StatelessWidget {
             children: List.generate(
               onboardingData.length,
               (index) => Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                width: 8,
-                height: 8,
+                margin:  EdgeInsets.symmetric(horizontal: 4.sp),
+                width: 8.w,
+                height: 8.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: currentPage == index ? Colors.white : Colors.grey,
