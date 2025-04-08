@@ -4,7 +4,7 @@ Welcome to **CineMax Movie App** – a beautifully designed cinematic Flutter ap
 
 <p align="center">
   <img src="assets/screenShots/onboarding.png" width="300" alt="OnBoarding Screen"/>
-  <img src="assets/screenShots/auth_start" width="300" alt="AuthStart Screen"/>
+  <img src="assets/screenShots/auth_start.png" width="300" alt="AuthStart Screen"/>
   <img src="assets/screenShots/now_playing.png" width="300" alt="Movies Screen"/>
 </p>
 
@@ -28,8 +28,7 @@ Welcome to **CineMax Movie App** – a beautifully designed cinematic Flutter ap
 ---
 
 ## 📦 Project Architecture
-
-lib/
+<pre> ``` lib/
 ├── core/
 │   ├── DI (GetIt)
 │   ├── Networking (Dio + Retrofit)
@@ -46,7 +45,7 @@ lib/
 │       ├── logic/
 │       │   └── cubit & states
 │       └── ui/
-│           └── screens & widgets
+│           └── screens & widgets```/pre>
 
 ---
 
