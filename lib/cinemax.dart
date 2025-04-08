@@ -5,9 +5,9 @@ import 'package:gedeed/Core/Routes/app_router.dart';
 import 'Core/Routes/routes.dart';
 import 'Core/Themes/colors/colors.dart';
 
-class DocApp extends StatelessWidget {
+class CineMax extends StatelessWidget {
   final AppRouter appRouter;
-  const DocApp({super.key, required this.appRouter});
+  const CineMax({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class DocApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-        title: 'Doctor App',
-        initialRoute: Routes.nowPlayingScreen,
+        title: 'CineMax',
+        initialRoute: Routes.onBoarding,
         theme: ThemeData(
           primaryColor: ColorsManager.primary,
           scaffoldBackgroundColor: ColorsManager.white,

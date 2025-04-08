@@ -8,13 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gedeed/Core/Routes/app_router.dart';
-import 'package:gedeed/doctor_app.dart';
-
+import 'package:gedeed/cinemax.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( DocApp(appRouter: AppRouter(),));
+    await tester.pumpWidget(CineMax.CineMax(appRouter: AppRouter()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:gedeed/Core/Helpers/extensions.dart';
+import 'package:gedeed/Core/Routes/app_router.dart';
 import 'package:gedeed/Core/Routes/routes.dart';
 import 'package:gedeed/Core/Themes/colors/colors.dart';
 import 'package:gedeed/Core/Themes/styles/fonts/text_style.dart';
@@ -33,8 +34,9 @@ class SignInBlocListener extends StatelessWidget {
             );
           },
           success: (signInResponse) {
-            context.pop();
-            showSuccessDialog(context);
+            context.pushNamed(Routes.nowPlayingScreen);
+            // context.pop();
+            // showSuccessDialog(context);
           },
           error: (error) {
             setupErrorState(context, error);
