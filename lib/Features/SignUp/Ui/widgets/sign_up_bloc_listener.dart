@@ -16,6 +16,7 @@ class SignupBlocListener extends StatelessWidget {
       listenWhen:
           (previous, current) =>
               current is SignupInitial ||
+              current is signupLoading ||
               current is SignupSuccess ||
               current is SignupError,
       listener: (context, state) {
@@ -38,6 +39,7 @@ class SignupBlocListener extends StatelessWidget {
           signupError: (error) {
             setupErrorState(context, error);
           },
+         
         );
       },
       child: const SizedBox.shrink(),

@@ -12,12 +12,11 @@ import 'package:gedeed/Features/nowPlaying/Logic/cubit/now_playing_cubit.dart';
 import 'package:gedeed/Features/nowPlaying/UI/screens/now_playing.dart';
 import 'package:gedeed/Features/onBoarding/ui/screens/on_boarding.dart';
 
-
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.onBoarding:
-        return MaterialPageRoute(builder: (_) => OnBoardingScreen ());
+        return MaterialPageRoute(builder: (_) => OnBoardingScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder:
@@ -51,7 +50,7 @@ class AppRouter {
               ),
         );
       default:
-        return MaterialPageRoute(builder: (_) => OnBoardingScreen ());
+        return MaterialPageRoute(builder: (_) => OnBoardingScreen());
     }
   }
 }

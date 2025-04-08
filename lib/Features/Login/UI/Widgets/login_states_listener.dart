@@ -18,6 +18,7 @@ class SignInBlocListener extends StatelessWidget {
       listenWhen:
           (previous, current) =>
               current is SignInIntial ||
+              current is SignInLoading ||
               current is SignInSuccess ||
               current is SignInError,
       listener: (context, state) {
@@ -37,6 +38,17 @@ class SignInBlocListener extends StatelessWidget {
             context.pushNamed(Routes.nowPlayingScreen);
             // context.pop();
             // showSuccessDialog(context);
+          },
+          loading: () {
+            showDialog(
+              context: context,
+              builder:
+                  (context) => const Center(
+                    child: CircularProgressIndicator(
+                      color: ColorsManager.primary,
+                    ),
+                  ),
+            );
           },
           error: (error) {
             setupErrorState(context, error);
