@@ -17,7 +17,7 @@ abstract class ApiService {
 
   });
 
-  /// Helper method to build the full image URL from a poster path.
+ 
   static String getImageUrl(String posterPath, {String size = ApiConstants.defaultImageSize}) {
     return '${ApiConstants.imageBaseUrl}$size$posterPath';
   }

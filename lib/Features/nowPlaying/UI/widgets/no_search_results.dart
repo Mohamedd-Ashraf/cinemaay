@@ -13,15 +13,15 @@ class NoSearchResultWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/search_empty.png', width: 120.w),
-           SizedBox(height: 20.h),
+          Image.asset('assets/images/no_result.png', width: 120.w),
+          SizedBox(height: 20.h),
           const Text(
             "We Are Sorry, We Can\nNot Find The Movie :(",
             textAlign: TextAlign.center,
             style: TextStyles.h5Medium,
           ),
-           SizedBox(height: 10.h),
-           Text(
+          SizedBox(height: 10.h),
+          Text(
             "Find your movie by Type title,\ncategories, years, etc",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white38, fontSize: 14.sp),

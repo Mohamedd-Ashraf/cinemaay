@@ -17,7 +17,8 @@ class CineMax extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         title: 'CineMax',
-        initialRoute: intialRoute(),
+        // initialRoute: intialRoute(),
+        initialRoute: Routes.onBoarding,
         theme: ThemeData(
           primaryColor: ColorsManager.primary,
           scaffoldBackgroundColor: ColorsManager.white,

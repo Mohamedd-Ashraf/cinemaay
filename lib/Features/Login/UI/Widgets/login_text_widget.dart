@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../Core/DI/dependency_injection.dart';
+import '../../../../Core/NetWorking/user_session.dart';
 import '../../../../Core/Themes/styles/fonts/text_style.dart';
 
 class LoginTextWidget extends StatelessWidget {
@@ -13,7 +15,7 @@ class LoginTextWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          userName != null ? "Hi, $userName!👋" : "Hi, There!👋",
+          userName != null ? "Hi, ${getIt<UserSession>().getUsername()}!👋" : "Hi, There!👋",
           style: TextStyles.h1Semibold.copyWith(
             fontSize: 26.sp,
             color: Colors.white,

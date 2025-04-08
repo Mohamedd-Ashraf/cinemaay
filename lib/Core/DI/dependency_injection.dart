@@ -21,6 +21,7 @@
 import 'package:dio/dio.dart';
 import 'package:gedeed/Core/NetWorking/api_service.dart';
 import 'package:gedeed/Core/NetWorking/dio_factory.dart';
+import 'package:gedeed/Core/NetWorking/user_session.dart';
 import 'package:gedeed/Features/Login/Logic/cubit/login_cubit.dart';
 import 'package:gedeed/Features/SignUp/logic/cubit/sign_up_cubit.dart';
 
@@ -35,6 +36,7 @@ Future<void> setUpGetIt() async {
 
   // Core
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  getIt.registerLazySingleton<UserSession>(() => UserSession()); 
 
   // Repos
   getIt.registerLazySingleton<MovieRepository>(() => MovieRepository());
@@ -44,4 +46,3 @@ Future<void> setUpGetIt() async {
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit());
   getIt.registerFactory<NowPlayingCubit>(() => NowPlayingCubit());
 }
-

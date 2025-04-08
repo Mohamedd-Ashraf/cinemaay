@@ -23,6 +23,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         passwordController.text,
         nameController.text,
       );
+      
       if (result is User) {
         print("User signed in successfully");
         print("User ID: ${result.uid}");

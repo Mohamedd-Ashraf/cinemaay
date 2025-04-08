@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gedeed/Core/NetWorking/user_session.dart';
+import '../../../../Core/DI/dependency_injection.dart';
 import '../../../../Core/Helpers/FireBase/fire_base_helper.dart';
 import 'login_state.dart';
 
@@ -17,6 +19,9 @@ class SignInCubit extends Cubit<SignInState> {
         passwordController.text,
       );
       if (result is User) {
+        final displayName = result.displayName ?? 'User';
+        // Save it to GetIt service
+        getIt<UserSession>().setUsername(displayName);
         emit(SignInState.success(result));
       } else {
         emit(SignInState.error(message: result));
