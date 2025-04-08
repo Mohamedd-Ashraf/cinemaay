@@ -83,5 +83,10 @@ flutter run
 
 ## 🧱 My Implementation Approach
 
-I structured the app with a modular architecture to maintain scalability and readability. I used `Bloc` for predictable and testable state management, and `GetIt` for clean dependency injection. The API layer is built with `Dio` and `Retrofit` to simplify HTTP requests. Firebase handles authentication with user sessions to provide a personalized experience. Design-wise, I focused on a cinematic, visually appealing UI that matches the theme of the app while ensuring responsiveness using `ScreenUtil`. Every screen is broken down into reusable widgets to keep the UI consistent and easy to manage.
+I structured the app with a modular architecture to maintain scalability and readability.
+I used `Bloc` for predictable and testable state management, and `GetIt` for clean dependency injection.
+The API layer is built with `Dio` and `Retrofit` to simplify HTTP requests. 
+Firebase handles authentication with user sessions to provide a personalized experience. Design-wise,
+I focused on a cinematic, visually appealing UI that matches the theme of the app while ensuring responsiveness using `ScreenUtil`. 
+Every screen is broken down into reusable widgets to keep the UI consistent and easy to manage.
 
