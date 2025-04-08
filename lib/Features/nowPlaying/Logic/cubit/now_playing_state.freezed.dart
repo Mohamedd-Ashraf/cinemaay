@@ -20,49 +20,60 @@ mixin _$NowPlayingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MovieModel> movies) loaded,
+    required TResult Function(
+            List<MovieModel> movies, List<MovieModel> filteredMovies)
+        loaded,
     required TResult Function(String message) error,
+    required TResult Function(List<MovieModel> lastMovies) noSearchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MovieModel> movies)? loaded,
+    TResult? Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult? Function(String message)? error,
+    TResult? Function(List<MovieModel> lastMovies)? noSearchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MovieModel> movies)? loaded,
+    TResult Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult Function(String message)? error,
+    TResult Function(List<MovieModel> lastMovies)? noSearchResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(nowPlayingStateIntial value) initial,
-    required TResult Function(nowPlayingStateLoading value) loading,
-    required TResult Function(nowPlayingStateLoaded value) loaded,
+    required TResult Function(NowPlayingStateInitial value) initial,
+    required TResult Function(NowPlayingStateLoading value) loading,
+    required TResult Function(NowPlayingStateLoaded value) loaded,
     required TResult Function(NowPlayingStateError value) error,
+    required TResult Function(NowPlayingStateNoSearchResult value)
+        noSearchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(nowPlayingStateIntial value)? initial,
-    TResult? Function(nowPlayingStateLoading value)? loading,
-    TResult? Function(nowPlayingStateLoaded value)? loaded,
+    TResult? Function(NowPlayingStateInitial value)? initial,
+    TResult? Function(NowPlayingStateLoading value)? loading,
+    TResult? Function(NowPlayingStateLoaded value)? loaded,
     TResult? Function(NowPlayingStateError value)? error,
+    TResult? Function(NowPlayingStateNoSearchResult value)? noSearchResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(nowPlayingStateIntial value)? initial,
-    TResult Function(nowPlayingStateLoading value)? loading,
-    TResult Function(nowPlayingStateLoaded value)? loaded,
+    TResult Function(NowPlayingStateInitial value)? initial,
+    TResult Function(NowPlayingStateLoading value)? loading,
+    TResult Function(NowPlayingStateLoaded value)? loaded,
     TResult Function(NowPlayingStateError value)? error,
+    TResult Function(NowPlayingStateNoSearchResult value)? noSearchResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,19 +101,20 @@ class _$NowPlayingStateCopyWithImpl<$Res, $Val extends NowPlayingState>
 }
 
 /// @nodoc
-abstract class _$$nowPlayingStateIntialImplCopyWith<$Res> {
-  factory _$$nowPlayingStateIntialImplCopyWith(
-          _$nowPlayingStateIntialImpl value,
-          $Res Function(_$nowPlayingStateIntialImpl) then) =
-      __$$nowPlayingStateIntialImplCopyWithImpl<$Res>;
+abstract class _$$NowPlayingStateInitialImplCopyWith<$Res> {
+  factory _$$NowPlayingStateInitialImplCopyWith(
+          _$NowPlayingStateInitialImpl value,
+          $Res Function(_$NowPlayingStateInitialImpl) then) =
+      __$$NowPlayingStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$nowPlayingStateIntialImplCopyWithImpl<$Res>
-    extends _$NowPlayingStateCopyWithImpl<$Res, _$nowPlayingStateIntialImpl>
-    implements _$$nowPlayingStateIntialImplCopyWith<$Res> {
-  __$$nowPlayingStateIntialImplCopyWithImpl(_$nowPlayingStateIntialImpl _value,
-      $Res Function(_$nowPlayingStateIntialImpl) _then)
+class __$$NowPlayingStateInitialImplCopyWithImpl<$Res>
+    extends _$NowPlayingStateCopyWithImpl<$Res, _$NowPlayingStateInitialImpl>
+    implements _$$NowPlayingStateInitialImplCopyWith<$Res> {
+  __$$NowPlayingStateInitialImplCopyWithImpl(
+      _$NowPlayingStateInitialImpl _value,
+      $Res Function(_$NowPlayingStateInitialImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of NowPlayingState
@@ -111,8 +123,8 @@ class __$$nowPlayingStateIntialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
-  const _$nowPlayingStateIntialImpl();
+class _$NowPlayingStateInitialImpl implements NowPlayingStateInitial {
+  const _$NowPlayingStateInitialImpl();
 
   @override
   String toString() {
@@ -123,7 +135,7 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$nowPlayingStateIntialImpl);
+            other is _$NowPlayingStateInitialImpl);
   }
 
   @override
@@ -134,8 +146,11 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MovieModel> movies) loaded,
+    required TResult Function(
+            List<MovieModel> movies, List<MovieModel> filteredMovies)
+        loaded,
     required TResult Function(String message) error,
+    required TResult Function(List<MovieModel> lastMovies) noSearchResult,
   }) {
     return initial();
   }
@@ -145,8 +160,10 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MovieModel> movies)? loaded,
+    TResult? Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult? Function(String message)? error,
+    TResult? Function(List<MovieModel> lastMovies)? noSearchResult,
   }) {
     return initial?.call();
   }
@@ -156,8 +173,10 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MovieModel> movies)? loaded,
+    TResult Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult Function(String message)? error,
+    TResult Function(List<MovieModel> lastMovies)? noSearchResult,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -169,10 +188,12 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(nowPlayingStateIntial value) initial,
-    required TResult Function(nowPlayingStateLoading value) loading,
-    required TResult Function(nowPlayingStateLoaded value) loaded,
+    required TResult Function(NowPlayingStateInitial value) initial,
+    required TResult Function(NowPlayingStateLoading value) loading,
+    required TResult Function(NowPlayingStateLoaded value) loaded,
     required TResult Function(NowPlayingStateError value) error,
+    required TResult Function(NowPlayingStateNoSearchResult value)
+        noSearchResult,
   }) {
     return initial(this);
   }
@@ -180,10 +201,11 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(nowPlayingStateIntial value)? initial,
-    TResult? Function(nowPlayingStateLoading value)? loading,
-    TResult? Function(nowPlayingStateLoaded value)? loaded,
+    TResult? Function(NowPlayingStateInitial value)? initial,
+    TResult? Function(NowPlayingStateLoading value)? loading,
+    TResult? Function(NowPlayingStateLoaded value)? loaded,
     TResult? Function(NowPlayingStateError value)? error,
+    TResult? Function(NowPlayingStateNoSearchResult value)? noSearchResult,
   }) {
     return initial?.call(this);
   }
@@ -191,10 +213,11 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(nowPlayingStateIntial value)? initial,
-    TResult Function(nowPlayingStateLoading value)? loading,
-    TResult Function(nowPlayingStateLoaded value)? loaded,
+    TResult Function(NowPlayingStateInitial value)? initial,
+    TResult Function(NowPlayingStateLoading value)? loading,
+    TResult Function(NowPlayingStateLoaded value)? loaded,
     TResult Function(NowPlayingStateError value)? error,
+    TResult Function(NowPlayingStateNoSearchResult value)? noSearchResult,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -204,25 +227,25 @@ class _$nowPlayingStateIntialImpl implements nowPlayingStateIntial {
   }
 }
 
-abstract class nowPlayingStateIntial implements NowPlayingState {
-  const factory nowPlayingStateIntial() = _$nowPlayingStateIntialImpl;
+abstract class NowPlayingStateInitial implements NowPlayingState {
+  const factory NowPlayingStateInitial() = _$NowPlayingStateInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$nowPlayingStateLoadingImplCopyWith<$Res> {
-  factory _$$nowPlayingStateLoadingImplCopyWith(
-          _$nowPlayingStateLoadingImpl value,
-          $Res Function(_$nowPlayingStateLoadingImpl) then) =
-      __$$nowPlayingStateLoadingImplCopyWithImpl<$Res>;
+abstract class _$$NowPlayingStateLoadingImplCopyWith<$Res> {
+  factory _$$NowPlayingStateLoadingImplCopyWith(
+          _$NowPlayingStateLoadingImpl value,
+          $Res Function(_$NowPlayingStateLoadingImpl) then) =
+      __$$NowPlayingStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$nowPlayingStateLoadingImplCopyWithImpl<$Res>
-    extends _$NowPlayingStateCopyWithImpl<$Res, _$nowPlayingStateLoadingImpl>
-    implements _$$nowPlayingStateLoadingImplCopyWith<$Res> {
-  __$$nowPlayingStateLoadingImplCopyWithImpl(
-      _$nowPlayingStateLoadingImpl _value,
-      $Res Function(_$nowPlayingStateLoadingImpl) _then)
+class __$$NowPlayingStateLoadingImplCopyWithImpl<$Res>
+    extends _$NowPlayingStateCopyWithImpl<$Res, _$NowPlayingStateLoadingImpl>
+    implements _$$NowPlayingStateLoadingImplCopyWith<$Res> {
+  __$$NowPlayingStateLoadingImplCopyWithImpl(
+      _$NowPlayingStateLoadingImpl _value,
+      $Res Function(_$NowPlayingStateLoadingImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of NowPlayingState
@@ -231,8 +254,8 @@ class __$$nowPlayingStateLoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
-  const _$nowPlayingStateLoadingImpl();
+class _$NowPlayingStateLoadingImpl implements NowPlayingStateLoading {
+  const _$NowPlayingStateLoadingImpl();
 
   @override
   String toString() {
@@ -243,7 +266,7 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$nowPlayingStateLoadingImpl);
+            other is _$NowPlayingStateLoadingImpl);
   }
 
   @override
@@ -254,8 +277,11 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MovieModel> movies) loaded,
+    required TResult Function(
+            List<MovieModel> movies, List<MovieModel> filteredMovies)
+        loaded,
     required TResult Function(String message) error,
+    required TResult Function(List<MovieModel> lastMovies) noSearchResult,
   }) {
     return loading();
   }
@@ -265,8 +291,10 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MovieModel> movies)? loaded,
+    TResult? Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult? Function(String message)? error,
+    TResult? Function(List<MovieModel> lastMovies)? noSearchResult,
   }) {
     return loading?.call();
   }
@@ -276,8 +304,10 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MovieModel> movies)? loaded,
+    TResult Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult Function(String message)? error,
+    TResult Function(List<MovieModel> lastMovies)? noSearchResult,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -289,10 +319,12 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(nowPlayingStateIntial value) initial,
-    required TResult Function(nowPlayingStateLoading value) loading,
-    required TResult Function(nowPlayingStateLoaded value) loaded,
+    required TResult Function(NowPlayingStateInitial value) initial,
+    required TResult Function(NowPlayingStateLoading value) loading,
+    required TResult Function(NowPlayingStateLoaded value) loaded,
     required TResult Function(NowPlayingStateError value) error,
+    required TResult Function(NowPlayingStateNoSearchResult value)
+        noSearchResult,
   }) {
     return loading(this);
   }
@@ -300,10 +332,11 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(nowPlayingStateIntial value)? initial,
-    TResult? Function(nowPlayingStateLoading value)? loading,
-    TResult? Function(nowPlayingStateLoaded value)? loaded,
+    TResult? Function(NowPlayingStateInitial value)? initial,
+    TResult? Function(NowPlayingStateLoading value)? loading,
+    TResult? Function(NowPlayingStateLoaded value)? loaded,
     TResult? Function(NowPlayingStateError value)? error,
+    TResult? Function(NowPlayingStateNoSearchResult value)? noSearchResult,
   }) {
     return loading?.call(this);
   }
@@ -311,10 +344,11 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(nowPlayingStateIntial value)? initial,
-    TResult Function(nowPlayingStateLoading value)? loading,
-    TResult Function(nowPlayingStateLoaded value)? loaded,
+    TResult Function(NowPlayingStateInitial value)? initial,
+    TResult Function(NowPlayingStateLoading value)? loading,
+    TResult Function(NowPlayingStateLoaded value)? loaded,
     TResult Function(NowPlayingStateError value)? error,
+    TResult Function(NowPlayingStateNoSearchResult value)? noSearchResult,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -324,26 +358,26 @@ class _$nowPlayingStateLoadingImpl implements nowPlayingStateLoading {
   }
 }
 
-abstract class nowPlayingStateLoading implements NowPlayingState {
-  const factory nowPlayingStateLoading() = _$nowPlayingStateLoadingImpl;
+abstract class NowPlayingStateLoading implements NowPlayingState {
+  const factory NowPlayingStateLoading() = _$NowPlayingStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$nowPlayingStateLoadedImplCopyWith<$Res> {
-  factory _$$nowPlayingStateLoadedImplCopyWith(
-          _$nowPlayingStateLoadedImpl value,
-          $Res Function(_$nowPlayingStateLoadedImpl) then) =
-      __$$nowPlayingStateLoadedImplCopyWithImpl<$Res>;
+abstract class _$$NowPlayingStateLoadedImplCopyWith<$Res> {
+  factory _$$NowPlayingStateLoadedImplCopyWith(
+          _$NowPlayingStateLoadedImpl value,
+          $Res Function(_$NowPlayingStateLoadedImpl) then) =
+      __$$NowPlayingStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<MovieModel> movies});
+  $Res call({List<MovieModel> movies, List<MovieModel> filteredMovies});
 }
 
 /// @nodoc
-class __$$nowPlayingStateLoadedImplCopyWithImpl<$Res>
-    extends _$NowPlayingStateCopyWithImpl<$Res, _$nowPlayingStateLoadedImpl>
-    implements _$$nowPlayingStateLoadedImplCopyWith<$Res> {
-  __$$nowPlayingStateLoadedImplCopyWithImpl(_$nowPlayingStateLoadedImpl _value,
-      $Res Function(_$nowPlayingStateLoadedImpl) _then)
+class __$$NowPlayingStateLoadedImplCopyWithImpl<$Res>
+    extends _$NowPlayingStateCopyWithImpl<$Res, _$NowPlayingStateLoadedImpl>
+    implements _$$NowPlayingStateLoadedImplCopyWith<$Res> {
+  __$$NowPlayingStateLoadedImplCopyWithImpl(_$NowPlayingStateLoadedImpl _value,
+      $Res Function(_$NowPlayingStateLoadedImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of NowPlayingState
@@ -352,11 +386,16 @@ class __$$nowPlayingStateLoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? movies = null,
+    Object? filteredMovies = null,
   }) {
-    return _then(_$nowPlayingStateLoadedImpl(
-      null == movies
+    return _then(_$NowPlayingStateLoadedImpl(
+      movies: null == movies
           ? _value._movies
           : movies // ignore: cast_nullable_to_non_nullable
+              as List<MovieModel>,
+      filteredMovies: null == filteredMovies
+          ? _value._filteredMovies
+          : filteredMovies // ignore: cast_nullable_to_non_nullable
               as List<MovieModel>,
     ));
   }
@@ -364,9 +403,12 @@ class __$$nowPlayingStateLoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
-  const _$nowPlayingStateLoadedImpl(final List<MovieModel> movies)
-      : _movies = movies;
+class _$NowPlayingStateLoadedImpl implements NowPlayingStateLoaded {
+  const _$NowPlayingStateLoadedImpl(
+      {required final List<MovieModel> movies,
+      final List<MovieModel> filteredMovies = const []})
+      : _movies = movies,
+        _filteredMovies = filteredMovies;
 
   final List<MovieModel> _movies;
   @override
@@ -376,41 +418,57 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
     return EqualUnmodifiableListView(_movies);
   }
 
+  final List<MovieModel> _filteredMovies;
+  @override
+  @JsonKey()
+  List<MovieModel> get filteredMovies {
+    if (_filteredMovies is EqualUnmodifiableListView) return _filteredMovies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filteredMovies);
+  }
+
   @override
   String toString() {
-    return 'NowPlayingState.loaded(movies: $movies)';
+    return 'NowPlayingState.loaded(movies: $movies, filteredMovies: $filteredMovies)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$nowPlayingStateLoadedImpl &&
-            const DeepCollectionEquality().equals(other._movies, _movies));
+            other is _$NowPlayingStateLoadedImpl &&
+            const DeepCollectionEquality().equals(other._movies, _movies) &&
+            const DeepCollectionEquality()
+                .equals(other._filteredMovies, _filteredMovies));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_movies),
+      const DeepCollectionEquality().hash(_filteredMovies));
 
   /// Create a copy of NowPlayingState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$nowPlayingStateLoadedImplCopyWith<_$nowPlayingStateLoadedImpl>
-      get copyWith => __$$nowPlayingStateLoadedImplCopyWithImpl<
-          _$nowPlayingStateLoadedImpl>(this, _$identity);
+  _$$NowPlayingStateLoadedImplCopyWith<_$NowPlayingStateLoadedImpl>
+      get copyWith => __$$NowPlayingStateLoadedImplCopyWithImpl<
+          _$NowPlayingStateLoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MovieModel> movies) loaded,
+    required TResult Function(
+            List<MovieModel> movies, List<MovieModel> filteredMovies)
+        loaded,
     required TResult Function(String message) error,
+    required TResult Function(List<MovieModel> lastMovies) noSearchResult,
   }) {
-    return loaded(movies);
+    return loaded(movies, filteredMovies);
   }
 
   @override
@@ -418,10 +476,12 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MovieModel> movies)? loaded,
+    TResult? Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult? Function(String message)? error,
+    TResult? Function(List<MovieModel> lastMovies)? noSearchResult,
   }) {
-    return loaded?.call(movies);
+    return loaded?.call(movies, filteredMovies);
   }
 
   @override
@@ -429,12 +489,14 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MovieModel> movies)? loaded,
+    TResult Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult Function(String message)? error,
+    TResult Function(List<MovieModel> lastMovies)? noSearchResult,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(movies);
+      return loaded(movies, filteredMovies);
     }
     return orElse();
   }
@@ -442,10 +504,12 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(nowPlayingStateIntial value) initial,
-    required TResult Function(nowPlayingStateLoading value) loading,
-    required TResult Function(nowPlayingStateLoaded value) loaded,
+    required TResult Function(NowPlayingStateInitial value) initial,
+    required TResult Function(NowPlayingStateLoading value) loading,
+    required TResult Function(NowPlayingStateLoaded value) loaded,
     required TResult Function(NowPlayingStateError value) error,
+    required TResult Function(NowPlayingStateNoSearchResult value)
+        noSearchResult,
   }) {
     return loaded(this);
   }
@@ -453,10 +517,11 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(nowPlayingStateIntial value)? initial,
-    TResult? Function(nowPlayingStateLoading value)? loading,
-    TResult? Function(nowPlayingStateLoaded value)? loaded,
+    TResult? Function(NowPlayingStateInitial value)? initial,
+    TResult? Function(NowPlayingStateLoading value)? loading,
+    TResult? Function(NowPlayingStateLoaded value)? loaded,
     TResult? Function(NowPlayingStateError value)? error,
+    TResult? Function(NowPlayingStateNoSearchResult value)? noSearchResult,
   }) {
     return loaded?.call(this);
   }
@@ -464,10 +529,11 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(nowPlayingStateIntial value)? initial,
-    TResult Function(nowPlayingStateLoading value)? loading,
-    TResult Function(nowPlayingStateLoaded value)? loaded,
+    TResult Function(NowPlayingStateInitial value)? initial,
+    TResult Function(NowPlayingStateLoading value)? loading,
+    TResult Function(NowPlayingStateLoaded value)? loaded,
     TResult Function(NowPlayingStateError value)? error,
+    TResult Function(NowPlayingStateNoSearchResult value)? noSearchResult,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -477,16 +543,18 @@ class _$nowPlayingStateLoadedImpl implements nowPlayingStateLoaded {
   }
 }
 
-abstract class nowPlayingStateLoaded implements NowPlayingState {
-  const factory nowPlayingStateLoaded(final List<MovieModel> movies) =
-      _$nowPlayingStateLoadedImpl;
+abstract class NowPlayingStateLoaded implements NowPlayingState {
+  const factory NowPlayingStateLoaded(
+      {required final List<MovieModel> movies,
+      final List<MovieModel> filteredMovies}) = _$NowPlayingStateLoadedImpl;
 
   List<MovieModel> get movies;
+  List<MovieModel> get filteredMovies;
 
   /// Create a copy of NowPlayingState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$nowPlayingStateLoadedImplCopyWith<_$nowPlayingStateLoadedImpl>
+  _$$NowPlayingStateLoadedImplCopyWith<_$NowPlayingStateLoadedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -562,8 +630,11 @@ class _$NowPlayingStateErrorImpl implements NowPlayingStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MovieModel> movies) loaded,
+    required TResult Function(
+            List<MovieModel> movies, List<MovieModel> filteredMovies)
+        loaded,
     required TResult Function(String message) error,
+    required TResult Function(List<MovieModel> lastMovies) noSearchResult,
   }) {
     return error(message);
   }
@@ -573,8 +644,10 @@ class _$NowPlayingStateErrorImpl implements NowPlayingStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MovieModel> movies)? loaded,
+    TResult? Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult? Function(String message)? error,
+    TResult? Function(List<MovieModel> lastMovies)? noSearchResult,
   }) {
     return error?.call(message);
   }
@@ -584,8 +657,10 @@ class _$NowPlayingStateErrorImpl implements NowPlayingStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MovieModel> movies)? loaded,
+    TResult Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
     TResult Function(String message)? error,
+    TResult Function(List<MovieModel> lastMovies)? noSearchResult,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -597,10 +672,12 @@ class _$NowPlayingStateErrorImpl implements NowPlayingStateError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(nowPlayingStateIntial value) initial,
-    required TResult Function(nowPlayingStateLoading value) loading,
-    required TResult Function(nowPlayingStateLoaded value) loaded,
+    required TResult Function(NowPlayingStateInitial value) initial,
+    required TResult Function(NowPlayingStateLoading value) loading,
+    required TResult Function(NowPlayingStateLoaded value) loaded,
     required TResult Function(NowPlayingStateError value) error,
+    required TResult Function(NowPlayingStateNoSearchResult value)
+        noSearchResult,
   }) {
     return error(this);
   }
@@ -608,10 +685,11 @@ class _$NowPlayingStateErrorImpl implements NowPlayingStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(nowPlayingStateIntial value)? initial,
-    TResult? Function(nowPlayingStateLoading value)? loading,
-    TResult? Function(nowPlayingStateLoaded value)? loaded,
+    TResult? Function(NowPlayingStateInitial value)? initial,
+    TResult? Function(NowPlayingStateLoading value)? loading,
+    TResult? Function(NowPlayingStateLoaded value)? loaded,
     TResult? Function(NowPlayingStateError value)? error,
+    TResult? Function(NowPlayingStateNoSearchResult value)? noSearchResult,
   }) {
     return error?.call(this);
   }
@@ -619,10 +697,11 @@ class _$NowPlayingStateErrorImpl implements NowPlayingStateError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(nowPlayingStateIntial value)? initial,
-    TResult Function(nowPlayingStateLoading value)? loading,
-    TResult Function(nowPlayingStateLoaded value)? loaded,
+    TResult Function(NowPlayingStateInitial value)? initial,
+    TResult Function(NowPlayingStateLoading value)? loading,
+    TResult Function(NowPlayingStateLoaded value)? loaded,
     TResult Function(NowPlayingStateError value)? error,
+    TResult Function(NowPlayingStateNoSearchResult value)? noSearchResult,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -642,5 +721,186 @@ abstract class NowPlayingStateError implements NowPlayingState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NowPlayingStateErrorImplCopyWith<_$NowPlayingStateErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NowPlayingStateNoSearchResultImplCopyWith<$Res> {
+  factory _$$NowPlayingStateNoSearchResultImplCopyWith(
+          _$NowPlayingStateNoSearchResultImpl value,
+          $Res Function(_$NowPlayingStateNoSearchResultImpl) then) =
+      __$$NowPlayingStateNoSearchResultImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<MovieModel> lastMovies});
+}
+
+/// @nodoc
+class __$$NowPlayingStateNoSearchResultImplCopyWithImpl<$Res>
+    extends _$NowPlayingStateCopyWithImpl<$Res,
+        _$NowPlayingStateNoSearchResultImpl>
+    implements _$$NowPlayingStateNoSearchResultImplCopyWith<$Res> {
+  __$$NowPlayingStateNoSearchResultImplCopyWithImpl(
+      _$NowPlayingStateNoSearchResultImpl _value,
+      $Res Function(_$NowPlayingStateNoSearchResultImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NowPlayingState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? lastMovies = null,
+  }) {
+    return _then(_$NowPlayingStateNoSearchResultImpl(
+      lastMovies: null == lastMovies
+          ? _value._lastMovies
+          : lastMovies // ignore: cast_nullable_to_non_nullable
+              as List<MovieModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NowPlayingStateNoSearchResultImpl
+    implements NowPlayingStateNoSearchResult {
+  const _$NowPlayingStateNoSearchResultImpl(
+      {required final List<MovieModel> lastMovies})
+      : _lastMovies = lastMovies;
+
+  final List<MovieModel> _lastMovies;
+  @override
+  List<MovieModel> get lastMovies {
+    if (_lastMovies is EqualUnmodifiableListView) return _lastMovies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lastMovies);
+  }
+
+  @override
+  String toString() {
+    return 'NowPlayingState.noSearchResult(lastMovies: $lastMovies)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NowPlayingStateNoSearchResultImpl &&
+            const DeepCollectionEquality()
+                .equals(other._lastMovies, _lastMovies));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_lastMovies));
+
+  /// Create a copy of NowPlayingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NowPlayingStateNoSearchResultImplCopyWith<
+          _$NowPlayingStateNoSearchResultImpl>
+      get copyWith => __$$NowPlayingStateNoSearchResultImplCopyWithImpl<
+          _$NowPlayingStateNoSearchResultImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(
+            List<MovieModel> movies, List<MovieModel> filteredMovies)
+        loaded,
+    required TResult Function(String message) error,
+    required TResult Function(List<MovieModel> lastMovies) noSearchResult,
+  }) {
+    return noSearchResult(lastMovies);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(List<MovieModel> lastMovies)? noSearchResult,
+  }) {
+    return noSearchResult?.call(lastMovies);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<MovieModel> movies, List<MovieModel> filteredMovies)?
+        loaded,
+    TResult Function(String message)? error,
+    TResult Function(List<MovieModel> lastMovies)? noSearchResult,
+    required TResult orElse(),
+  }) {
+    if (noSearchResult != null) {
+      return noSearchResult(lastMovies);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NowPlayingStateInitial value) initial,
+    required TResult Function(NowPlayingStateLoading value) loading,
+    required TResult Function(NowPlayingStateLoaded value) loaded,
+    required TResult Function(NowPlayingStateError value) error,
+    required TResult Function(NowPlayingStateNoSearchResult value)
+        noSearchResult,
+  }) {
+    return noSearchResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NowPlayingStateInitial value)? initial,
+    TResult? Function(NowPlayingStateLoading value)? loading,
+    TResult? Function(NowPlayingStateLoaded value)? loaded,
+    TResult? Function(NowPlayingStateError value)? error,
+    TResult? Function(NowPlayingStateNoSearchResult value)? noSearchResult,
+  }) {
+    return noSearchResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NowPlayingStateInitial value)? initial,
+    TResult Function(NowPlayingStateLoading value)? loading,
+    TResult Function(NowPlayingStateLoaded value)? loaded,
+    TResult Function(NowPlayingStateError value)? error,
+    TResult Function(NowPlayingStateNoSearchResult value)? noSearchResult,
+    required TResult orElse(),
+  }) {
+    if (noSearchResult != null) {
+      return noSearchResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NowPlayingStateNoSearchResult implements NowPlayingState {
+  const factory NowPlayingStateNoSearchResult(
+          {required final List<MovieModel> lastMovies}) =
+      _$NowPlayingStateNoSearchResultImpl;
+
+  List<MovieModel> get lastMovies;
+
+  /// Create a copy of NowPlayingState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NowPlayingStateNoSearchResultImplCopyWith<
+          _$NowPlayingStateNoSearchResultImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
